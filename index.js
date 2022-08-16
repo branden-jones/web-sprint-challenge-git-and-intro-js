@@ -245,9 +245,13 @@ Use copy to do the following:
 🌟 EXAMPLE of return: ["Amedeo Modigliani", "Vasiliy Kandinskiy", "Diego Rivera"....]
 */
 
-function listOfNames(/*Your Code Here*/) {
-  /*Your Code Here*/
-}
+function listOfNames(arr) {
+  let artiNames = [];
+  for(let i = 0; i < arr.length; i++){
+    artiNames.push(arr[i].name)
+  }return artiNames;
+  
+}console.log(listOfNames(artists));
 
 
 
