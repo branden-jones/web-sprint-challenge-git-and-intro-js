@@ -310,9 +310,16 @@ Use lotsOfArt to do the following:
 🌟 EXAMPLE: lotsOfArt(artists) will return ["Amedeo Modigliani", "Rene Magritte", ... "Albrecht Dürer"]
 */
 
-function lotsOfArt(/*Your Code Here*/) {
-  /*Your Code Here*/
-}
+function lotsOfArt(arr) {
+  let paintArr = [];
+  for(let i = 0; i < arr.length; i++){
+    const artPaintings = arr[i].paintings;
+    const artiName = arr[i].name;
+    if(artPaintings > 100){
+      paintArr.push(artiName);
+    }
+  } return paintArr;
+}console.log(lotsOfArt(artists));
 
 
 
@@ -348,10 +355,16 @@ Use artistByCountry to do the following:
 🌟 EXAMPLE: Invoking artistByCountry(artists, 'Spanish') will return: [ 'Salvador Dali', 'Pablo Picasso', 'Francisco Goya']
 */
 
-function artistByCountry(/*Your Code Here*/){
-  /*Your Code Here*/
+function artistByCountry(arr,string){
+  let oneNation = [];
+  for(let i = 0; i < arr.length; i++){
+    const fromNation = string;
+    if(arr[i].nationality.includes(fromNation)){
+      oneNation.push(arr[i].name)
+    } 
+  } return oneNation;
 }
-
+console.log(artistByCountry(artists, 'Russian'));
 
 
 /* ***** END OF TASKS ***** */
