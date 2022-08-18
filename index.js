@@ -264,12 +264,14 @@ Use removeArtist to do the following:
 5. Return the resulting copied array
 🌟 EXAMPLE: if removeArtist is invoked with the artists array and the number 0, it will return the resulting array with Amedeo Modigliani removed from our dataset. */
 
-function removeArtist(arr,num) {
-  for(let i = 0; i < arr.length; i++){
-    delete arr[num];
-  } return arr;
-}; 
-console.log(removeArtist(artists,3));
+function removeArtist(arr, num) {
+  const newArr = [...arr];
+  newArr.splice(num,1);
+  console.log(newArr);
+  return newArr;
+}
+console.log(artists);
+console.log(removeArtist(artists, 4));
 
 
 
@@ -288,14 +290,9 @@ Use addArtist to do the following:
 4. Return the array
 🌟 EXAMPLE: Invoking addArtist(artists, 'John Doe', '1988-2022', 'Full Stack Development', 'African American', 'I have a background in customer service at Big Retail Chain. I am attending BloomTech to become a Frontend Developer.') should return the artists array with the above object added to the end of the array. */
 
-function addArtist(arr,stringName,stringYears,stringGenre,stringNationality,stringBio) {
-  const newObj = {
-  'name': stringName,
-  'years': stringYears,
-  'genre': stringGenre,
-  'nationality': stringNationality,
-  'bio': stringBio,
-}; return arr.push(newObj);
+function addArtist(arr,name,years,genre,nationality,bio) {
+  arr.push({name, years, genre, nationality, bio});
+  return arr;
 }
 addArtist(artists, "Branden Jones", "1992-Present", "Web-Design", "North American", "Grew up in a small town in east Alabama called Valley, Al. Was on a local TV show to eat weird things. Hiked the Appalachian Trail in 2018. Has a dog named Teddy after the son of Remus and Tonks Lupin");
 console.log(artists);
@@ -319,7 +316,8 @@ function lotsOfArt(arr) {
       paintArr.push(artiName);
     }
   } return paintArr;
-}console.log(lotsOfArt(artists));
+}
+console.log(lotsOfArt(artists));
 
 
 
@@ -335,13 +333,12 @@ Use artistInfo to do the following:
 
 function artistInfo(arr,string){
   for(let i = 0; i < arr.length; i++){
-    const artiName = arr[i].name
-    const artiBio = arr[i].bio
-    if(artiName === string){
-      return artiBio
+    if(arr[i].name === string){
+      return arr[i].bio
     }
   } 
-} console.log(artistInfo(artists, 'El Greco'));
+} 
+console.log(artistInfo(artists, 'El Greco'));
 
 
 
@@ -358,13 +355,12 @@ Use artistByCountry to do the following:
 function artistByCountry(arr,string){
   let oneNation = [];
   for(let i = 0; i < arr.length; i++){
-    const fromNation = string;
-    if(arr[i].nationality.includes(fromNation)){
+    if(arr[i].nationality === string){
       oneNation.push(arr[i].name)
     } 
   } return oneNation;
 }
-console.log(artistByCountry(artists, 'Russian'));
+console.log(artistByCountry(artists,'Spanish'));
 
 
 /* ***** END OF TASKS ***** */
